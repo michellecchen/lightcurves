@@ -51,12 +51,13 @@ This monotonically downward-sloping wave with low amplitude similarly does not p
 
 ### Case 2: Confirmed planet (low proper motion)
 
-**Kepler-227b**
+[**Kepler-227b**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=K00752.01&type=KEPLER_CANDIDATE) (KIC 10797460) is a confirmed planet with an orbital period of *9.48803557±2.775e-05* days. Its host star, Kepler-227, carries a low proper motion of *5.00003* mas/yr. (This calculation employed data from [SIMBAD](http://simbad.u-strasbg.fr/simbad/sim-id?Ident=KIC+10797460&submit=submit+id), with a provided *μ<sub>α*</sub> of *1.853* mas/yr and μ<sub>δ</sub> of *4.644* mas/yr.) As a PC, Kepler-227b was dispositioned with a score of 1.0000, indicating high confidence in a PC classification.
+
 
 
 ### Case 3: Confirmed planet (high proper motion)
 
-[**Kepler-42c**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=K00961.02&type=KEPLER_CANDIDATE) (KIC 8561063) is a confirmed planet with a short orbital period of *0.453287416±1.02e-07* days (10.9 hours) whose host star, located in the Cygnus constellation, carries a renownedly high proper motion of *427.682* mas/yr. (Data calculated via [SIMBAD](http://simbad.u-strasbg.fr/simbad/sim-id?Ident=KIC+8561063&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id), which provided μ<sub>α*</sub> of *1.853* mas/yr and μ<sub>δ</sub> of *4.644* mas/yr.)  It was initially assigned a disposition score of 0.0000, indicating high confidence in the automated FP classification, as well as further suggesting a direct correlation between high stellar proper motion and difficulties in aperture/pixel optimization.
+[**Kepler-42c**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=K00961.02&type=KEPLER_CANDIDATE) (KIC 8561063) is a confirmed planet with a short orbital period of *0.453287416±1.02e-07* days (10.9 hours) whose host star, located in the Cygnus constellation, carries a renownedly high proper motion of *427.682* mas/yr. (Again, this was calculated via [SIMBAD](http://simbad.u-strasbg.fr/simbad/sim-id?Ident=KIC+8561063&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id), which provided μ<sub>α*</sub> of *93.126* mas/yr and μ<sub>δ</sub> of *-417.420* mas/yr.) As a PC, Kepler-42c was initially assigned a disposition score of 0.0000, indicating high confidence in the automated FP classification, as well as further suggesting a direct correlation between high stellar proper motion and difficulties in aperture/pixel optimization.
 
 Due to low orbital period as well as high proper motion, producing the lightcurve for Kepler-42c requires additional fine-tuning. Upon narrowing the x-axis and broadening the y-axis, the following result was obtained:
 
