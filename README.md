@@ -53,7 +53,13 @@ This monotonically downward-sloping wave with low amplitude similarly does not p
 
 [**Kepler-227b**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=K00752.01&type=KEPLER_CANDIDATE) (KIC 10797460) is a confirmed planet with an orbital period of *9.48803557±2.775e-05* days. Its host star, Kepler-227, carries a low proper motion of *5.00003* mas/yr. (This calculation employed data from [SIMBAD](http://simbad.u-strasbg.fr/simbad/sim-id?Ident=KIC+10797460&submit=submit+id), with a provided *μ<sub>α*</sub> of *1.853* mas/yr and μ<sub>δ</sub> of *4.644* mas/yr.) As a PC, Kepler-227b was dispositioned with a score of 1.0000, indicating high confidence in a PC classification.
 
+![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/10797460/10797460-1.png)
 
+*[There's a promising dip in multiple regions that could evince a transit; however, I think I need to do more outlier-vetting/flattening to make it clearer. Will seek help from Aylin on this.]*
+
+Upon plotting the target pixel files, the reading is isolated enough to do without reselection;
+
+![Pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/10797460/10797460-2.png)
 
 ### Case 3: Confirmed planet (high proper motion)
 
