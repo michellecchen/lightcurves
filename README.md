@@ -4,7 +4,7 @@
 
 The False Positive Working Group (FPWG) produced its light curves for verified planet Kepler-1649b and planet candidate Kepler-1649c through **aperture photometry.** For each quarter, they selected — from a set of 20 different apertures — the one that produced the most photometrically precise curve. A noteworthy part of this process was accounting for potentially diluting flux from nearby stars, otherwise known as "contaminants."
 
-This paper will perform **Simple Aperture Photometry** on a variety of cases to produce and compare light curves to those from Vanderburg et al. It uses `lightkurve`, a package for Kepler & TESS time series analysis, as well as `matplotlib`, a data visualization library, to do so.  Both run in Python 3.7. Because manual aperture optimization is beyond the scope of the following calculations, pixel optimization will be the focus of these calculations. In investigating why Kepler-1649c failed the Robovetter's Model-Shift Uniqueness test, the FPWG concluded that the fully automated pixel selection algorithm employed by the Kepler pipeline failed to account for the faintness of the host star, as well as its high proper motion. As a result, half-pixel errors resulted in Kepler-1649 remaining within the photometric aperture in some quarters, while falling outside of it entirely in others.
+This paper will perform **Simple Aperture Photometry** on a variety of cases to produce and compare light curves to those from Vanderburg et al. It uses `lightkurve`, a package for Kepler & TESS time series analysis, as well as `matplotlib`, a data visualization library, to do so. Both run in Python 3.7. Because manual aperture optimization is beyond the scope of the following calculations, pixel optimization will be the focus of these calculations. In investigating why Kepler-1649c failed the Robovetter's Model-Shift Uniqueness test, the FPWG concluded that the fully automated pixel selection algorithm employed by the Kepler pipeline failed to account for the faintness of the host star, as well as its high proper motion. As a result, half-pixel errors resulted in Kepler-1649 remaining within the photometric aperture in some quarters, while falling outside of it entirely in others.
 
 ### Procedure: Simple Aperture Photometry
 
@@ -16,7 +16,7 @@ In this simplified rendition of aperture photometry,
 4. The light curve is cleaned up: outliers are removed via simple sigma clipping, and long-term trends are flattened;
 5. The light curve is finalized.
 
-All data is extracted from the NASA Exoplanet Archive's Kepler database.
+All data is extracted from the NASA Exoplanet Archive's cumulative Kepler Objects of Interest (KOI) database.
 
 ### Selecting cases of study
 
@@ -31,23 +31,23 @@ The primary intention of these calculations is to compare light curves of Kepler
 
 [**KIC 892772**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=KOI-1009&type=KEPLER_HOST) is a certified FP with a transit period of *5.09246539±4.39e-05* days.
 
-Its initial light curve without pixel optimization revealed little about the FP's disposition.
+Its initial light curve contains highly inconsistent amounts of photometric scatter with little to no transiting signs. So far, the FP disposition goes unchallenged.
 
 ![Initial light curve for KIC 892772](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-1.png)
 
-Despite KIC 892772's certified FP status, one cannot discount the possibility that the signal has been nonetheless contaminated by a nearby star. Here, it becomes important to plot the target pixel files.
+Despite KIC 892772's certified FP status, it would be procedurally sound to account for the possibility that the signal has been contaminated by a nearby star. Therefore, it is important to plot the target pixel files.
 
 ![Initial pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-2.png)
 
-The preselected region of pixels lie in the upper-left quadrant. This is unideal; as indicated by the legend, the flux is highest in the centre quadrant. Upon reselecting the pixels, selecting those in the center, a distinct improvement is made:
+The preselected region of pixels lie in the upper-left quadrant. However, high flux from the central quadrant indicates chances of contamination. By reselecting the pixels to cover this central quadrant, one can investigate the source of interference.
 
 ![Optimal pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-3.png)
 
-Upon "decontamination," or optimization, of pixel selection, the light curve can be rebuilt and cleaned.
+This produces the following light curve:
 
 ![Optimal lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-4.png)
 
-This monotonically downward-sloping wave with low amplitude does not provide enough evidence for a planet signal. Therefore, the results from this finalized lightcurve are in agreement with the dispositioning of KIC 892772 as an FP.
+This monotonically downward-sloping wave with low amplitude similarly does not provide evidence for a planet signal. The results from these lightcurves are in agreement with the dispositioning of KIC 892772 as an FP.
 
 ### Case 2: Confirmed planet (low proper motion)
 
@@ -61,18 +61,20 @@ This monotonically downward-sloping wave with low amplitude does not provide eno
 
 This final case focuses on reproducing the rationales used by Vanderburg et al. in manually dispositioning Kepler-1649c as an exoplanet. It uses **KIC 6679295**, an unclassified PC, to do so.
 
-[KIC 6679295](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=KOI-2862.01&type=KEPLER_CANDIDATE) has a transit period of *24.5752524±0.0001782* days. Its initial, unoptimized light curve, demonstrates a somewhat promising sinusoidal pattern.
+[KIC 6679295](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=KOI-2862.01&type=KEPLER_CANDIDATE) has a transit period of *24.5752524±0.0001782* days. Its initial, unoptimized light curve, demonstrates promising evidence of a transit.
 
-![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-2.png)
+![Optimized light curve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-4.png)
 
-This lightcurve was produced using prior preselections of the central pixel quadrant. In this case, it is the unoptimal one. A brighter, "decontaminated" alternative lies in the upper-left quadrant.
+It is especially important here to "decontaminate" the light curve. Upon plotting the target pixel files,
 
 ![Initial pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-1.png)
 
-Pixel reselection reveals that the center quadrant was a good option, but not the best possible one. Therefore, upon optimization,
+The central quadrant is in focus; however, one can observe a nearby contaminate star in the upper-leftmost quadrant. Therefore, by reselecting the pixels to pursue this inquiry,
 
 ![Optimized pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-3.png)
 
-It is then possible to reproduce a cleaner lightcurve.
+And producing a light curve from the contaminant,
 
-![Optimized light curve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-4.png)
+![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-2.png)
+
+It becomes clear that only KIC 6679295 boasts a planet signal. Therefore, it is likely that KIC 6679295 can be dispositioned as a planet.
