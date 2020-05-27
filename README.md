@@ -31,9 +31,21 @@ The primary intention of these calculations is to compare light curves of Kepler
 
 Its initial light curve without pixel optimization revealed little about the FP's disposition.
 
+![Initial light curve for KIC 892772](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-1.png)
 
+Despite KIC 892772's certified FP status, one cannot discount the possibility that the signal has been nonetheless contaminated by a nearby star. Here, it becomes important to plot the target pixel files.
 
+![Initial pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-2.png)
 
+The preselected region of pixels lie in the upper-left quadrant. This is unideal; as indicated by the legend, the flux is highest in the centre quadrant. Upon reselecting the pixels, selecting those in the center, a distinct improvement is made:
+
+![Optimal pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-3.png)
+
+Upon "decontamination," or optimization, of pixel selection, the light curve can be rebuilt and cleaned.
+
+![Optimal lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/892772/892772-4.png)
+
+This monotonically downward-sloping wave with low amplitude does not provide enough evidence for a planet signal. Therefore, the results from this finalized lightcurve are in agreement with the dispositioning of KIC 892772 as an FP.
 
 ### Case 2: Confirmed planet (low proper motion)
 
