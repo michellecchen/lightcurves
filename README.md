@@ -4,7 +4,7 @@
 
 The False Positive Working Group (FPWG) produced its light curves for verified planet Kepler-1649b and planet candidate Kepler-1649c through **aperture photometry.** For each quarter, they selected — from a set of 20 different apertures — the one that produced the most photometrically precise curve. A noteworthy part of this process was accounting for potentially diluting flux from nearby stars, otherwise known as "contaminants."
 
-This paper will perform **Simple Aperture Photometry** on a variety of cases to produce and compare light curves to those from Vanderburg et al. It uses `lightkurve`, a package for Kepler & TESS time series analysis, as well as `matplotlib`, a data visualization library, to do so.  Both run in Python 3.7. Because manual aperture optimization is beyond the scope of the following calculations, pixel optimization will be focused upon. In investigating why Kepler-1649c failed the Robovetter's Model-Shift Uniqueness test, the FPWG concluded that the fully automated pixel selection algorithm employed by the Kepler pipeline failed to account for the faintness of the host star, as well as its high proper motion. As a result, half-pixel errors resulted in Kepler-1649 remaining within the photometric aperture in some quarters, while falling outside of it entirely in others.
+This paper will perform **Simple Aperture Photometry** on a variety of cases to produce and compare light curves to those from Vanderburg et al. It uses `lightkurve`, a package for Kepler & TESS time series analysis, as well as `matplotlib`, a data visualization library, to do so.  Both run in Python 3.7. Because manual aperture optimization is beyond the scope of the following calculations, pixel optimization will be the focus of these calculations. In investigating why Kepler-1649c failed the Robovetter's Model-Shift Uniqueness test, the FPWG concluded that the fully automated pixel selection algorithm employed by the Kepler pipeline failed to account for the faintness of the host star, as well as its high proper motion. As a result, half-pixel errors resulted in Kepler-1649 remaining within the photometric aperture in some quarters, while falling outside of it entirely in others.
 
 ### Procedure: Simple Aperture Photometry
 
@@ -15,6 +15,8 @@ In this simplified rendition of aperture photometry,
 3. The chosen pixels are summed to a singular flux value, as well as for every image per time slice;
 4. The light curve is cleaned up: outliers are removed via simple sigma clipping, and long-term trends are flattened;
 5. The light curve is finalized.
+
+All data is extracted from the NASA Exoplanet Archive's Kepler database.
 
 ### Selecting cases of study
 
@@ -27,7 +29,7 @@ The primary intention of these calculations is to compare light curves of Kepler
 
 ### Case 1: Certified FP
 
-**KIC 892772** is a certified FP with a transit period of *5.09246539±4.39e-05*.
+[**KIC 892772**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=KOI-1009&type=KEPLER_HOST) is a certified FP with a transit period of *5.09246539±4.39e-05* days.
 
 Its initial light curve without pixel optimization revealed little about the FP's disposition.
 
@@ -49,6 +51,28 @@ This monotonically downward-sloping wave with low amplitude does not provide eno
 
 ### Case 2: Confirmed planet (low proper motion)
 
+
+
 ### Case 3: Confirmed planet (high proper motion)
 
+
+
 ### Case 4: Unclassified PC
+
+This final case focuses on reproducing the rationales used by Vanderburg et al. in manually dispositioning Kepler-1649c as an exoplanet. It uses **KIC 6679295**, an unclassified PC, to do so.
+
+[KIC 6679295](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=KOI-2862.01&type=KEPLER_CANDIDATE) has a transit period of *24.5752524±0.0001782* days. Its initial, unoptimized light curve, demonstrates a somewhat promising sinusoidal pattern.
+
+![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-2.png)
+
+This lightcurve was produced using prior preselections of the central pixel quadrant. In this case, it is the unoptimal one. A brighter, "decontaminated" alternative lies in the upper-left quadrant.
+
+![Initial pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-1.png)
+
+Pixel reselection reveals that the center quadrant was a good option, but not the best possible one. Therefore, upon optimization,
+
+![Optimized pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-3.png)
+
+It is then possible to reproduce a cleaner lightcurve.
+
+![Optimized light curve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-4.png)
