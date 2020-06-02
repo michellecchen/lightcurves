@@ -53,11 +53,11 @@ This monotonically downward-sloping wave with low amplitude similarly does not p
 
 [**Kepler-227b**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=K00752.01&type=KEPLER_CANDIDATE) (KIC 10797460) is a confirmed planet with an orbital period of *9.48803557±2.775e-05* days. Its host star, Kepler-227, carries a low proper motion of *5.00003* mas/yr. (This calculation employed data from [SIMBAD](http://simbad.u-strasbg.fr/simbad/sim-id?Ident=KIC+10797460&submit=submit+id), with a provided *μ<sub>α*</sub> of *1.853* mas/yr and μ<sub>δ</sub> of *4.644* mas/yr.) As a PC, Kepler-227b was dispositioned with a score of 1.0000, indicating high confidence in a PC classification.
 
-![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/10797460/10797460-1.png)
+![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/case_2/10797460_updated.png)
 
-Upon plotting the target pixel files, the reading is isolated enough to do without reselection;
+Upon plotting the target pixel files, we find that the reading is isolated. Because there is no risk of contamination, no reselection is required.
 
-![Pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/10797460/10797460-2.png)
+![Pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/case_2/10797460-2.png)
 
 ### Case 3: Confirmed planet (high proper motion)
 
@@ -65,13 +65,11 @@ Upon plotting the target pixel files, the reading is isolated enough to do witho
 
 Due to low orbital period as well as high proper motion, producing the lightcurve for Kepler-42c requires additional fine-tuning. Upon narrowing the x-axis and broadening the y-axis, the following result was obtained:
 
-![Initial light curve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/8561063/8561063-1.png)
+**(Ignore for now; this section is incomplete.)**
 
 The phase from -0.002 to -0.001 hints at a transit. Again, it is important to examine the target pixel files for possible contamination in flux. Upon plotting these files,
 
-![Pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/8561063/8561063-2.png)
-
-*[I want to debug this section further, as I'm highly confused why the target ID suddenly changed from 8561063 to 63126862. I've scoured SIMBAD, but nothing so much as points to the existence of a KIC 63126862.]*
+**(Also, ignore.)**
 
 ### Case 4: Unclassified PC
 
@@ -79,18 +77,18 @@ This final case focuses on reproducing the rationales used by Vanderburg et al. 
 
 [KIC 6679295](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=KOI-2862.01&type=KEPLER_CANDIDATE) has a transit period of *24.5752524±0.0001782* days. Its initial, unoptimized light curve, demonstrates promising evidence of a transit.
 
-![Optimized light curve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-4.png)
+![Light curve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/case_4/6679295-4.png)
 
-It is especially important here to "decontaminate" the light curve. Upon plotting the target pixel files,
+It becomes especially critical here to decontaminate the light curve. Upon plotting the target pixel files,
 
-![Initial pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-1.png)
+![Masked pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/case_4/6679295-3.png)
 
 The central quadrant is in focus; however, one can observe a nearby contaminate star in the upper-leftmost quadrant. Therefore, by reselecting the pixels to pursue this inquiry,
 
-![Optimized pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-3.png)
+![Contaminant pixels](https://raw.githubusercontent.com/michellecchen/lightcurves/master/case_4/6679295-1.png)
 
 And producing a light curve from the contaminant,
 
-![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/6679295/6679295-2.png)
+![Contaminant lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/case_4/6679295-2.png)
 
 It becomes clear that only KIC 6679295 boasts a planet signal. Therefore, it is likely that KIC 6679295 can be dispositioned as a planet.
