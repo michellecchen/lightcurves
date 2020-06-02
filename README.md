@@ -6,9 +6,9 @@ The False Positive Working Group (FPWG) produced its light curves for verified p
 
 This paper will perform **Simple Aperture Photometry** on a variety of cases to produce and compare light curves to those from Vanderburg et al. It uses `lightkurve`, a package for Kepler & TESS time series analysis, as well as `matplotlib`, a data visualization library, to do so. Both run in Python 3.7. Because manual aperture optimization is beyond the scope of the following calculations, pixel optimization will be the focus of these calculations. In investigating why Kepler-1649c failed the Robovetter's Model-Shift Uniqueness test, the FPWG concluded that the fully automated pixel selection algorithm employed by the Kepler pipeline failed to account for the faintness of the host star, as well as its high proper motion. As a result, half-pixel errors resulted in Kepler-1649 remaining within the photometric aperture in some quarters, while falling outside of it entirely in others.
 
-### Procedure: Simple Aperture Photometry
+### Procedure: Simple Aperture Photometry (SAP)
 
-In this simplified rendition of aperture photometry,
+To emulate aperture photometry via SAP,
 
 1. All pixels from every quarter of the planet candidate's data set are downloaded;
 2. A select few are chosen programmatically, eliminating as much flux contamination as possible;
@@ -54,8 +54,6 @@ This monotonically downward-sloping wave with low amplitude similarly does not p
 [**Kepler-227b**](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/DisplayOverview/nph-DisplayOverview?objname=K00752.01&type=KEPLER_CANDIDATE) (KIC 10797460) is a confirmed planet with an orbital period of *9.48803557±2.775e-05* days. Its host star, Kepler-227, carries a low proper motion of *5.00003* mas/yr. (This calculation employed data from [SIMBAD](http://simbad.u-strasbg.fr/simbad/sim-id?Ident=KIC+10797460&submit=submit+id), with a provided *μ<sub>α*</sub> of *1.853* mas/yr and μ<sub>δ</sub> of *4.644* mas/yr.) As a PC, Kepler-227b was dispositioned with a score of 1.0000, indicating high confidence in a PC classification.
 
 ![Initial lightcurve](https://raw.githubusercontent.com/michellecchen/lightcurves/master/10797460/10797460-1.png)
-
-*[There's a promising dip in multiple regions that could evince a transit; however, I think I need to do more outlier-vetting/flattening to make it clearer. Will seek help from Aylin on this.]*
 
 Upon plotting the target pixel files, the reading is isolated enough to do without reselection;
 
