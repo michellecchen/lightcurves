@@ -24,7 +24,7 @@ The primary intention of these calculations is to compare light curves of Kepler
 
 1. A certified false positive (FP);
 2. A confirmed planet whose host star exhibits *low* proper motion (ease of pixel optimization);
-3. A confirmed planet whose host star exhibits *high* proper motion (difficluty in pixel optimization, much like Kepler-1649 itself);
+3. A confirmed planet whose host star exhibits *high* proper motion (difficulty in pixel optimization, much like Kepler-1649 itself);
 4. And, lastly, an unclassified planet candidate (PC), so as to conclude with a non-automated dispositioning, modeling the work of Vanderburg et al.
 
 ### Case 1: Certified FP
