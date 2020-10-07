@@ -9,4 +9,4 @@ The following paper will focus on the habitability of exoplanet candidates, the 
 
 ## For the rest...
 
-See `paper.pdf`.
+See the uploaded PDF.
